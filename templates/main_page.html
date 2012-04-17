@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Welcome to Delphi Wordcloud{% endblock %}
+{% block head %}Welcome to Delphi Wordcloud{% endblock %}
+{% block content %}
+
+    {% if user.username %}
+        <p>Welcome {{ user.username }}!
+        Here you can upload a document and display its meaningful themes in an attractive wordcloud!</p>
+    {% else %}
+        <p>Welcome anonymous user!
+        You need to <a href="/login">login</a>
+        before you can upload a document and display its meaningful themes in an attractive wordcloud.</p>
+    {% endif %}
+{% endblock %}
+

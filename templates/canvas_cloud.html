@@ -1,0 +1,36 @@
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>title</title>
+      <!-- Do not forget to include excanvas for IE. -->
+      <!--[if IE]><script type="text/javascript" src="excanvas.min.js"></script>
+      <![endif]-->
+  </head>
+  <body>
+    <canvas id= "myCanvas"
+      width   = "1024"
+      height  = "768"
+      margin  = "0px"
+      padding = "0px"
+      border  = "none">
+    </canvas>
+    <script type="text/javascript">  
+      $.getJSON('/important.json', null, processJSON);
+
+      function processJSON(data) {
+        var myTextList = [];
+        $.each(data,function(name,val) {
+          for(var varl in val){
+           entry = new Object();
+           entry.text = varl;
+           entry.weight = Math.sqrt(val[varl]);
+//           entry.weight = Math.log(val[varl]);
+//           entry.weight = val[varl];
+           myTextList.push(entry);
+          }
+        });
+        var vis = new metaaps.nebulos(document.getElementById('myCanvas'));
+        vis.draw(myTextList);
+      }
+     </script>
+  </body>
+</html>

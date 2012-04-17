@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block external %}
+    <script type= "text/javascript"
+     src="/site_media/corpus_edit.js">
+    </script>
+{% endblock %}
+{% block title %}{{ username }}{% endblock %}
+{% block head %}{{ username }} has the following corpora:{%  endblock %}
+{% block content %}
+    {% include "corpus_list.html" %}
+{% endblock %}
